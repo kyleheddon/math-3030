@@ -1,0 +1,9 @@
+= form_tag root_path, remote: true do
+  = render 'point_inputs', point: 1
+  = render 'point_inputs', point: 2
+  = render 'point_inputs', point: 3
+  = render 'point_inputs', point: 4
+  %p
+    .btn.btn-danger.clear-points Clear
+    .pull-right
+      = submit_tag 'Submit', { class: 'btn btn-primary' }
