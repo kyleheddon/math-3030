@@ -17,7 +17,7 @@ class PointSolver
     p1 = points[0]
     p4 = points[3]
     plane = get_plane(p1)
-    self.plane_equation = "Plane: #{plane[0]}x + #{plane[1]}y + #{plane[2]}z + #{plane[3]} = 0"
+    self.plane_equation = "#{plane[0]}x + #{plane[1]}y + #{plane[2]}z + #{plane[3]} = 0"
 
     find_symmetrical_point(plane, p4)
   end

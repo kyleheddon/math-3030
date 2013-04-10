@@ -1,9 +1,9 @@
-.pull-left
-  .points-form= render 'points_form'
-.offset1.pull-left
-  %h4 Set Default Points
-  .btn.colinear Colinear
-  .btn.noncolinear Not Colinear
-.clearfix
+.row-fluid
+  .span5
+    .points-form.pull-left
+      = render 'points_form'
+    .clearfix
+  .span4
+    = render 'default_points_buttons'
 .alert.alert-info.messages{ style: 'display: none' }
   %ul

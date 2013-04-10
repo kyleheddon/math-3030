@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def solve
-    points = params[:points].map{|k1,v1| v1.map{|k2,v2| v2.to_f }}
+    points = points_from_params
     solver = PointSolver.new(points)
 
     if solver.colinear?
@@ -13,15 +13,23 @@ class HomeController < ApplicationController
       messages = ['Points are colinear.']
     else
       p5 = solver.symmetric_point
-      plane = solver.plane_equation
+      plane_equation = solver.plane_equation
       messages = [
         'Points are not colinear',
-        "Equation for plane: #{plane}",
-        "Point symmetrical to point 4 about the plane: #{p5}" 
+        "Equation for plane: <b>#{ plane_equation }</b>",
+        "Point symmetrical to point 4 about the plane: <b>#{ p5.collect{|s| s.round(3)} }</b>" 
       ]
     end
 
     render json: { colinear: colinear, symmetric_point: p5, messages: messages }
+  end
+
+  private
+
+  def points_from_params
+    params[:points].map do |point_index, point_coordinates| #In -> {  0: { 0: '5.1', 1: '6', 2: '3' }, {...}, {...}  }
+      point_coordinates.map{|coordinate, value| value.to_f } 
+    end #Out ->  [  [5.1, 6, 3], [...], [...]  ]
   end
 
 end

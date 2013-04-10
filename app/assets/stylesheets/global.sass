@@ -3,4 +3,28 @@ body
   padding-right: 20px
 .point-inputs
   input[type="text"]
-    width: 50px
+    width: 4em
+
+.messages
+  ul
+    //margin: 0
+    //list-style: none
+    li
+      font-size: 1.5em
+      line-height: 1.5em
+      b
+        disply: block
+
+.default-points
+  margin-bottom: 20px
+
+@media (max-width: 767px)
+  .messages
+    ul
+      margin-left: 20px
+      li
+        b
+          display: block
+          margin-left: 0.5em
+          font-size: 0.9em
+          text-align: center
