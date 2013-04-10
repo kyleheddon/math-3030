@@ -21,7 +21,7 @@ fill_form_with = (points) ->
       input = $('.point-inputs').eq(i).find('input').eq(j)
       input.val(coordinate)
 
-  $('.point-inputs form').submit()
+  $('.points-form form').submit()
 
 clear_points = ->
   $('.point-inputs input').val('')
