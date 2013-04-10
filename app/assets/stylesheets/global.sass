@@ -3,13 +3,16 @@ body
   padding-right: 20px
 .point-inputs
   input[type="text"]
-    width: 4em
+    width: 3em
 
 .messages
   ul
     li
       font-size: 1.5em
-      line-height: 1.5em
+      line-height: 1em
+      margin-top: 1em
+      &:first-child
+        margin-top: 0
       b
         disply: block
 
@@ -19,10 +22,8 @@ body
 @media (max-width: 767px)
   .messages
     ul
-      margin-left: 20px
       li
         b
           display: block
-          margin-left: 0.5em
           font-size: 0.9em
           text-align: center

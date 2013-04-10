@@ -17,12 +17,16 @@ class PointSolver
     p1 = points[0]
     p4 = points[3]
     plane = get_plane(p1)
-    self.plane_equation = "#{plane[0]}x + #{plane[1]}y + #{plane[2]}z + #{plane[3]} = 0"
+    self.plane_equation = "#{plane[0]}x #{sign plane[1]}y #{sign plane[2]}z #{sign plane[3]} = 0"
 
     find_symmetrical_point(plane, p4)
   end
 
   private
+
+  def sign num
+    "#{ num == num.abs ? '+' : '-' } #{num.abs}"
+  end
 
   def get_vector p1, p2
     [p2[0] - p1[0], p2[1] - p1[1], p2[2] - p1[2]]
@@ -98,6 +102,5 @@ class PointSolver
     end
     ar
   end
-
 
 end
